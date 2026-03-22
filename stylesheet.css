@@ -75,14 +75,57 @@ header h1 {
   margin-bottom: 0.5rem;
 }
 
-.contact-links {
-  color: var(--color-text-light);
-  font-size: 0.95rem;
-  margin-bottom: 0.5rem;
+/* Intro section */
+.tagline {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-heading);
+  text-align: left;
+  margin-bottom: 1rem;
 }
 
-.contact-links a {
-  margin-right: 0.5rem;
+.highlight-box {
+  background: #f4fafa;
+  border-left: 3px solid #1a9e9e;
+  padding: 0.8rem 1rem;
+  margin: 1.2rem 0;
+  border-radius: 0 4px 4px 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.contact-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.2rem;
+  align-items: center;
+}
+
+.pill {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+a.pill {
+  background: #1a6b8a;
+  color: #fff;
+}
+
+a.pill:hover {
+  background: #14536b;
+  text-decoration: none;
+}
+
+.pill-email {
+  background: #f0f0f0;
+  color: var(--color-text-light);
+  font-size: 0.82rem;
 }
 
 /* Navigation */
@@ -103,16 +146,156 @@ section {
   margin-bottom: 2rem;
 }
 
-/* Employment history image */
-.employment-img {
-  width: 100%;
-  height: auto;
-  margin: 1rem 0;
+/* Timeline */
+.timeline {
+  position: relative;
+  padding: 1rem 0 1rem 2rem;
+  margin: 1.5rem 0;
 }
 
-/* Open source list */
-.oss-entry {
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0.45rem;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, #1a9e9e, #1a6b8a);
+  border-radius: 2px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-hint {
+  font-size: 0.8rem;
+  color: #999;
+  font-style: italic;
   margin-bottom: 0.5rem;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -1.65rem;
+  top: 0.35rem;
+  width: 12px;
+  height: 12px;
+  background: #6b2fa0;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 2px #6b2fa0;
+}
+
+.timeline-dot.current {
+  background: #1a9e9e;
+  box-shadow: 0 0 0 2px #1a9e9e;
+}
+
+.timeline-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.timeline-company {
+  color: var(--color-text-light);
+  font-size: 0.9rem;
+}
+
+.timeline-date {
+  color: #888;
+  font-size: 0.8rem;
+}
+
+.timeline-desc {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.3s ease, opacity 0.3s ease, margin 0.3s ease;
+  font-size: 0.88rem;
+  color: var(--color-text-light);
+  line-height: 1.5;
+  text-align: left;
+}
+
+.timeline-item:hover .timeline-desc,
+.timeline-item.active .timeline-desc {
+  max-height: 300px;
+  opacity: 1;
+  margin-top: 0.4rem;
+}
+
+.timeline-item {
+  cursor: pointer;
+}
+
+.timeline-item:hover .timeline-dot {
+  transform: scale(1.3);
+  transition: transform 0.2s ease;
+}
+
+/* Open source cards */
+.oss-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.oss-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  padding: 0.9rem 1rem;
+  background: #f9f9f9;
+  border-radius: 6px;
+  border-left: 3px solid #1a9e9e;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.oss-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.oss-year {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-size: 0.8rem;
+  background: #1a9e9e;
+  color: #fff;
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.oss-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.oss-project {
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.oss-developer {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+@media (max-width: 600px) {
+  .oss-cards {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Video embed */
